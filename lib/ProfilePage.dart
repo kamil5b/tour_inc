@@ -12,6 +12,7 @@ class ProfilePageWidget extends StatefulWidget {
 class _ProfilePageWidgetState extends State<ProfilePageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   String name='';
+  int id=0;
 
   @override
   void initState(){
@@ -26,6 +27,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
     if(user != null) {
       setState(() {
         name = user['name'];
+        id = user['id'];
       });
     }
   }
@@ -78,6 +80,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 24,
+                              ),
+                            ),
+                            Text(
+                              'ID : ${id}',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 14,
                               ),
                             ),
                           ],

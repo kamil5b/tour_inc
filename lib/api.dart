@@ -23,13 +23,36 @@ class Network{
     );
   }
 
+
+  editData(data, apiURL) async{
+    print("AUTH");
+    var fullUrl = _url + apiURL;
+    return await http.put(
+        Uri.parse(fullUrl),
+        body: jsonEncode(data),
+        headers: _setHeaders()
+    );
+  }
+
+  deleteData(apiURL) async{
+    var fullUrl = _url + apiURL;
+    await _getToken();
+    return await http.delete(
+      Uri.parse(fullUrl),
+      headers: _setHeaders(),
+    );
+  }
+
   getData(apiURL) async{
     var fullUrl = _url + apiURL;
     await _getToken();
-    return await http.get(
-        Uri.parse(fullUrl),
+    print("GET DATA");
+    var data = await http.get(
+      Uri.parse(fullUrl),
       headers: _setHeaders(),
     );
+    print(data.body);
+    return data;
   }
 
   _setHeaders() => {

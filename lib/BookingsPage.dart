@@ -20,8 +20,7 @@ class _BookingsPageWidgetState extends State<BookingsPageWidget> {
     return Scaffold(
       key: scaffoldKey,
       body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+        child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

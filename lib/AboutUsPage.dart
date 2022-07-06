@@ -122,7 +122,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                         ),
                       ),
                       Container(
-                        height: 350,
+                        height: 250,
                         child: ListView.builder(
                           itemCount: servicesName.length,
                           scrollDirection: Axis.vertical,
@@ -170,66 +170,6 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
             ),
           ),
         ),
-        /*
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'AboutUs',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.business),
-              label: 'Business',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.school),
-              label: 'School',
-            ),
-          ],
-          currentIndex: 0,
-          selectedItemColor: Color(0xFF088454),
-          onTap: (index) async {
-            switch(index){
-              case 0 : {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AboutUsWidget(),
-                  ),
-                );
-              }
-              break;
-              case 1 : {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DestinationPageWidget(),
-                  ),
-                );
-              }
-              break;
-              case 2 : {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BookingsPageWidget(),
-                  ),
-                );
-              }
-              break;
-              case 3 : {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProfilePageWidget(),
-                  ),
-                );
-              }
-              break;
-            }
-          },
-        )
-    */
     );
   }
 }

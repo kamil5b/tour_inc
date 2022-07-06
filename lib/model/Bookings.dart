@@ -50,7 +50,7 @@ void EditTanggal(int booking_id, DateTime tanggal) async{
 }
 void DeleteBooking(int id) async{
   print("BOOKING");
-  var res = await Network().getData('/bookings/delete/${id}');
+  var res = await Network().deleteData('/bookings/delete/${id}');
   var body = json.decode(res.body);
   if(body != null) {
     if (body['success']) {

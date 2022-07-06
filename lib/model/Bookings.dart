@@ -1,14 +1,16 @@
 import 'dart:convert';
 
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tourinc/api.dart';
 import 'package:tourinc/model/destination.dart';
 
 class Bookings{
+  int id;
   Destination destination;
   int user_id;
   DateTime tanggal;
 
-  Bookings(this.destination,this.user_id,this.tanggal);
+  Bookings(this.id,this.destination,this.user_id,this.tanggal);
 
 }
 
@@ -36,7 +38,7 @@ void EditTanggal(int booking_id, DateTime tanggal) async{
     'tanggal' : tanggal.toString()
   };
   print("BOOKING");
-  var res = await Network().auth(data, '/bookings/edit');
+  var res = await Network().editData(data, '/bookings/edit');
   var body = json.decode(res.body);
   if(body != null) {
     if (body['success']) {
@@ -46,9 +48,9 @@ void EditTanggal(int booking_id, DateTime tanggal) async{
     }
   }
 }
-void DeleteBooking(int paket_id) async{
+void DeleteBooking(int id) async{
   print("BOOKING");
-  var res = await Network().getData('/bookings/delete/${paket_id}');
+  var res = await Network().getData('/bookings/delete/${id}');
   var body = json.decode(res.body);
   if(body != null) {
     if (body['success']) {
@@ -59,17 +61,31 @@ void DeleteBooking(int paket_id) async{
   }
 }
 
-Future<List<Bookings>> getAllBookings(int user_id, List<Destination>? listDestination) async{
-  var res = await Network().getData('/bookings/${user_id}');
+Future<List<Bookings>> getAllBookings() async{
+
+  SharedPreferences localStorage = await SharedPreferences.getInstance();
+  var user = jsonDecode(localStorage.getString('user')!);
+
+  int id = user['id'];
+  var res = await Network().getData('/bookings/${id}');
   var body = jsonDecode(res.body);
   List<Bookings> bookings = [];
+  print(res.body);
   if(body['success']){
     var datas = body['data'];
     datas.forEach( (data) =>
         bookings.add(
             Bookings(
-              listDestination!.firstWhere((destination) => destination.id == data['paket_id']),
-              user_id,
+              data['id'],
+              Destination(
+                  data['paket_id'],
+                  data['nama'],
+                  data['durasi'],
+                  data['pulau'],
+                  data['harga'],
+                url_pic: data['url_pic']
+              ),
+              id,
               DateTime.parse(data['tanggal'])
             )
         )

@@ -88,7 +88,7 @@ class _DestinationPageWidgetState extends State<DestinationPageWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Image.network(
-                                                  'https://img.jakpost.net/c/2017/08/02/2017_08_02_30495_1501654303._large.jpg',
+                                                  snapshot.data[index].url_pic,
                                                   width: double.infinity,
                                                   height: 140,
                                                   fit: BoxFit.cover,
@@ -116,110 +116,6 @@ class _DestinationPageWidgetState extends State<DestinationPageWidget> {
                           }
                         }
                     )
-                    /*
-                    ListView(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
-                          child: Card(
-                            clipBehavior: Clip.antiAliasWithSaveLayer,
-                            color: const Color(0xFF088454),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Image.network(
-                                  'https://img.jakpost.net/c/2017/08/02/2017_08_02_30495_1501654303._large.jpg',
-                                  width: double.infinity,
-                                  height: 140,
-                                  fit: BoxFit.cover,
-                                ),
-                                const Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 10, 10, 10),
-                                  child: Text(
-                                    'Labuan Bajo',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
-                          child: Card(
-                            clipBehavior: Clip.antiAliasWithSaveLayer,
-                            color: Color(0xFF088454),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Image.network(
-                                  'https://www.zubludiving.com/images/Indonesia/West-Papua/Raja-Ampat/Raja-Ampat-Wayag-Diving.jpg',
-                                  width: double.infinity,
-                                  height: 140,
-                                  fit: BoxFit.cover,
-                                ),
-                                const Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 10, 10, 10),
-                                  child: Text(
-                                    'Raja Ampat',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
-                          child: Card(
-                            clipBehavior: Clip.antiAliasWithSaveLayer,
-                            color: Color(0xFF088454),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Image.network(
-                                  'https://jakarta.go.id/uploads/contents/content--20210324094944.jpg',
-                                  width: double.infinity,
-                                  height: 140,
-                                  fit: BoxFit.cover,
-                                ),
-                                const Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 10, 10, 10),
-                                  child: Text(
-                                    'Pulau Seribu',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),*/
                   ),
                 ),
               ],

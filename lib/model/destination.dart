@@ -7,20 +7,24 @@ class Destination {
   String nama;
   String durasi;
   String pulau;
-  String fasilitas;
-  String fasilitas2;
-  String fasilitas3;
+  String? fasilitas;
+  String? fasilitas2;
+  String? fasilitas3;
   int harga;
+  String? url_pic;
 
   Destination(
       this.id,
       this.nama,
       this.durasi,
       this.pulau,
-      this.fasilitas,
-      this.fasilitas2,
-      this.fasilitas3,
-      this.harga
+      this.harga,
+      {
+         this.fasilitas,
+         this.fasilitas2,
+         this.fasilitas3,
+        this.url_pic
+      }
       );
 }
 
@@ -37,10 +41,11 @@ Future<List<Destination>> getAllDestination() async{
                 data['nama'],
                 data['durasi'],
                 data['pulau'],
-                data['fasilitas'],
-                data['fasilitas2'],
-                data['fasilitas3'],
-                data['harga']
+                data['harga'],
+                fasilitas:data['fasilitas'],
+              fasilitas2:data['fasilitas2'],
+              fasilitas3:data['fasilitas3'],
+              url_pic:data['url_pic'],
             )
         )
     );
